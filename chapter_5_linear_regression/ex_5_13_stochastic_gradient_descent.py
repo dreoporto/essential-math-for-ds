@@ -3,7 +3,7 @@ import numpy as np
 
 SAMPLE_SIZE = 1
 LEARNING_RATE = 0.0001
-EPOCHS = 1_000_000  # number of iterations to perform gradeint descent
+EPOCHS = 1_000_000  # number of iterations to perform gradient descent
 
 def main():
     data = pd.read_csv('./chapter_5_linear_regression/data/single_independent_variable_linear_small.csv', header=0)
