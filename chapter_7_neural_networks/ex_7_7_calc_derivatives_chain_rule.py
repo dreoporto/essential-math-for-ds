@@ -13,7 +13,7 @@ class DerivativeCalcs:
         A2, Y = symbols('A2, Y')
         C = (A2 - Y)**2
         self.dC_dA2 = diff(C, A2)
-        print('Derivative of Cost Function:', self.dC_dA2)
+        print('Derivative of Cost Function wrt A2:', self.dC_dA2)
 
     def _calc_A2_wrt_Z2_diff(self):
         Z2 = symbols('Z2')
