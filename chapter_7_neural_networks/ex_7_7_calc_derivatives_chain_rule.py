@@ -34,7 +34,7 @@ class DerivativeCalcs:
         self._calc_cost_function_wrt_A2_diff()
         self._calc_A2_wrt_Z2_diff()
         self._calc_Z2_wrt_W2_diff()
-        print('Derivative of C wrt W2:', self.dZ2_dW2 * self.dA2_dZ2* self.dC_dA2  ) # type: ignore
+        print('Derivative of C wrt W2:', self.dZ2_dW2 * self.dA2_dZ2 * self.dC_dA2  ) # type: ignore
 
 def main():
     dh.print_separator()
