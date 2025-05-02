@@ -97,7 +97,7 @@ def main():
     accuracy = sum(comparisons.astype(int) / X_test.shape[0])
     print(f'Accuracy: {accuracy:0.3%}')
 
-    print(f'Training time: {trainingTime:0.4f} seconds')
+    print(f'Training time: {trainingTime:0.2f} seconds')
 
 if __name__ == '__main__':
     dh.print_separator()
