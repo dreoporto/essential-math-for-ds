@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
+import misc.dre_colors as dc
 import misc.dre_helper as dh
 
 CSV_PATH = './chapter_7_neural_networks/data/light_dark_font_training_set.csv'
@@ -11,6 +12,7 @@ CSV_PATH = './chapter_7_neural_networks/data/light_dark_font_training_set.csv'
 RANDOM_SEED = 42
 LEARNING_RATE = 0.05
 ITERATIONS = 100_000
+RANDOM_COLOR_COUNT = 10
 
 # create activation/output functions
 relu = lambda x: np.maximum(x, 0)
@@ -98,6 +100,13 @@ def main():
     print(f'Accuracy: {accuracy:0.3%}')
 
     print(f'Training time: {trainingTime:0.2f} seconds')
+
+    colors = dc.generate_random_colors(RANDOM_COLOR_COUNT)
+    scaled_colors = colors.transpose() / 255.0
+    predictions = forward_propagation(scaled_colors, w_hidden, b_hidden, w_output, b_output)[-1]
+    predictions = (predictions >= 0.5).flatten().astype(int)
+
+    dc.plot_colors(colors, predictions)
 
 if __name__ == '__main__':
     dh.print_separator()
