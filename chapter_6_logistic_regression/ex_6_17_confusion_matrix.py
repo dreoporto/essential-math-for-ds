@@ -1,9 +1,10 @@
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import (confusion_matrix, f1_score, precision_score,
-                             recall_score)
+from sklearn.metrics import f1_score, precision_score, recall_score
 from sklearn.model_selection import train_test_split
+
 import misc.dre_helper as dh
+import misc.dre_metrics as dm
 
 CSV_PATH = './chapter_6_logistic_regression/data/employee_retention_analysis.csv'
 RANDOM_SEED = 10
@@ -21,11 +22,9 @@ def main():
     model.fit(X_train, y_train)
     prediction = model.predict(X_test)
 
-    tn, fp, fn, tp = confusion_matrix(y_true=y_test, y_pred=prediction).ravel()
     dh.print_separator('CONFUSION MATRIX')
-    print(f'TP:{tp}\tFN:{fn}')
-    print(f'FP:{fp}\tTN:{tn}')
-    dh.print_separator()    
+    dm.print_confusion_matrix(y_true=y_test, y_pred=prediction)
+    dh.print_separator() 
 
     score = f1_score(y_true=y_test, y_pred=prediction)
     print(f'F1 score:\t{score:0.4}')
