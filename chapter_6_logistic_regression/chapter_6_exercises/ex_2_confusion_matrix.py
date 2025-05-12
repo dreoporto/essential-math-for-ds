@@ -28,16 +28,9 @@ def main() -> None:
 
     dh.print_separator('CONFUSION MATRIX')
     dm.print_confusion_matrix(y_true=y_test, y_pred=prediction)
+
     dh.print_separator() 
-
-    score = f1_score(y_true=y_test, y_pred=prediction)
-    print(f'F1 score:\t{score:0.4}')
-
-    p_score = precision_score(y_true=y_test, y_pred=prediction)
-    print(f'Precision:\t{p_score:0.4f}')
-
-    r_score = recall_score(y_true=y_test, y_pred=prediction)
-    print(f'Recall:\t\t{r_score:0.4f}')
+    dm.print_classification_metrics(y_true=y_test, y_pred=prediction)
 
     colors = dc.generate_random_colors(RANDOM_COLOR_COUNT)
     dh.print_separator('RANDOM BACKGROUNDS')
