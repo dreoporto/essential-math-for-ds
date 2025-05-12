@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import f1_score, precision_score, recall_score
 from sklearn.model_selection import train_test_split
 
 import misc.dre_colors as dc
